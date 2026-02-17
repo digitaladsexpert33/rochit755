@@ -1,227 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rochit</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;color:#fff}
+    body{background:#030709;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:5px}
+    .card{background:linear-gradient(145deg,#040b10,#020406);border:1px solid rgba(0,255,255,.25);border-radius:28px;box-shadow:0 0 22px rgba(0,255,255,.35), inset 0 0 12px rgba(0,255,255,.15);padding:28px;max-width:420px;width:100%;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:999px;border:3px solid #00e6ff;padding:4px;margin:-54px auto 12px;background:#000;overflow:hidden;box-shadow:0 0 24px rgba(0,255,255,.5)}
+    .avatar img{width:100%;height:100%;object-fit:cover;border-radius:999px}
+    .title{font-weight:700;font-size:1.2rem;margin:6px 0 12px}
+    .list{margin:12px 0 4px}
+    .list-item{display:flex;align-items:center;gap:10px;justify-content:center;margin:8px 0;font-size:.9rem;opacity:.95}
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);margin:12px 0}
+    .cta{margin-top:12px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#30eaff,#8c4dff);padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:700;letter-spacing:.4px;box-shadow:0 0 0 3px rgba(255,255,255,.15),0 14px 26px rgba(88,0,255,.45),0 0 28px rgba(0,255,255,.6);transition:.25s;animation:pulseGlow 2.2s ease-in-out infinite}
+    .cta-btn:hover{transform:translateY(-2px)}
+    .tagline{margin-top:14px;font-size:.85rem;opacity:.9;line-height:1.4}
+    footer{font-size:.7rem;opacity:.65;margin-top:10px;line-height:1.25}
 
-body{
-  min-height:100vh;
-  background:linear-gradient(135deg,#0a0f1c,#0f172a);
-  color:#e5e7eb;
-  display:flex;
-  flex-direction:column;
-}
+    /* 🔹 Advertise Box */
+    .ad-box{
+      margin-top:12px;
+      padding:10px 14px;
+      border:1px solid rgba(0,255,255,.35);
+      border-radius:12px;
+      background:linear-gradient(145deg,#020a0f,#010304);
+      box-shadow:inset 0 0 10px rgba(0,255,255,.2),0 0 14px rgba(0,255,255,.3);
+      font-size:.75rem;
+      font-weight:600;
+      letter-spacing:.4px;
+    }
+    .ad-box a{
+      color:#00e6ff;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .ad-box a:hover{
+      text-decoration:underline;
+    }
 
-.top-bar{
-  background:#1e293b;
-  text-align:center;
-  padding:10px;
-  font-size:13px;
-  color:#cbd5f5;
-}
-
-.wrapper{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.card{
-  width:100%;
-  max-width:420px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(18px);
-  border-radius:20px;
-  padding:35px 28px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
-  text-align:center;
-  border:1px solid rgba(255,255,255,0.08);
-}
-
-.logo{
-  width:90px;
-  height:90px;
-  margin:0 auto 16px;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-h1{
-  font-size:20px;
-  letter-spacing:1.4px;
-  margin-bottom:6px;
-}
-
-.subs{
-  font-size:13px;
-  color:#94a3b8;
-  margin-bottom:24px;
-}
-
-.features{
-  text-align:left;
-  font-size:14px;
-  line-height:1.7;
-  margin-bottom:28px;
-}
-
-.features span{
-  display:block;
-  margin-bottom:10px;
-  color:#e2e8f0;
-}
-
-.features span::before{
-  content:"✔";
-  color:#22c55e;
-  margin-right:8px;
-}
-
-.btn{
-  display:block;
-  background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-  color:#fff;
-  padding:15px;
-  border-radius:12px;
-  font-size:15px;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 12px 30px rgba(14,165,233,0.45);
-  transition:0.3s ease;
-  cursor:pointer;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 16px 40px rgba(14,165,233,0.65);
-}
-
-.no-btn{
-  background:#334155;
-  box-shadow:none;
-  margin-top:10px;
-}
-
-.hidden{display:none}
-
-.disclaimer{
-  margin-top:22px;
-  font-size:11px;
-  color:#94a3b8;
-  line-height:1.5;
-}
-</style>
-
-<!-- Meta Pixel -->
+    @keyframes pulseGlow{
+      0%{box-shadow:0 0 0 3px rgba(255,255,255,.18),0 14px 26px rgba(88,0,255,.45),0 0 22px rgba(0,255,255,.55)}
+      50%{box-shadow:0 0 0 4px rgba(0,255,255,.35),0 18px 32px rgba(88,0,255,.6),0 0 36px rgba(0,255,255,.9)}
+      100%{box-shadow:0 0 0 3px rgba(255,255,255,.18),0 14px 26px rgba(88,0,255,.45),0 0 22px rgba(0,255,255,.55)}
+    }
+  </style>
+  
+<!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s){
- if(f.fbq)return;
- n=f.fbq=function(){n.callMethod?
- n.callMethod.apply(n,arguments):n.queue.push(arguments)};
- if(!f._fbq)f._fbq=n;
- n.push=n;n.loaded=!0;n.version='2.0';
- n.queue=[];
- t=b.createElement(e);t.async=!0;
- t.src=v;s=b.getElementsByTagName(e)[0];
- s.parentNode.insertBefore(t,s)
-}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init','4322864664662227');
-fbq('track','PageView');
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1558503872018525');
+fbq('track', 'PageView');
 </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1558503872018525&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 
 </head>
 
 <body>
 
-<div class="top-bar">
-  Don't have Telegram yet? Try it now!
-</div>
-
-<div class="wrapper">
   <div class="card">
 
-    <!-- LOGO -->
-    <div class="logo">
-      <img src="rochit.jpeg" alt="Channel Logo">
+    <div class="avatar">
+      <img src="rochit.jpeg" alt="Profile">
     </div>
 
-    <h1>Rochit Singh</h1>
-    <div class="subs">15,500+ Subscribers</div>
+    <h2 class="title">ROCHIT SINGH</h2>
 
-    <!-- QUESTION STEP -->
-    <div id="questionStep">
-
-      <div class="features">
-        <span>Do you want to receive educational market analysis on Telegram?</span>
-      </div>
-
-      <div class="btn" id="yesBtn">YES, CONTINUE</div>
-      <div class="btn no-btn" id="noBtn">NO, EXIT</div>
-
+    <div class="list">
+      <div class="list-item">🌐 Learning & Educational Sessions</div>
+      <div class="divider"></div>
+      <div class="list-item">📊 Market Concepts & Awareness</div>
+      <div class="divider"></div>
+      <div class="list-item">💎 Chart Reading Concepts</div>
+      <div class="divider"></div>
+      <div class="list-item">💻 Educational Case Discussions</div>
     </div>
 
-    <!-- TELEGRAM STEP -->
-    <div id="telegramStep" class="hidden">
+    <p style="margin-top:10px;font-size:.9rem;opacity:.9">
+      Join our learning community and grow your knowledge
+    </p>
 
-      <div class="features">
-        <span>Click below to open the official Telegram channel</span>
-      </div>
-
-      <a class="btn" id="tgBtn" href="https://t.me/+BGCF6cQ8SjE3YWQ1">
-        VIEW IN TELEGRAM
+    <div class="cta">
+      <a class="cta-btn tg-btn" href="https://t.me/+VpcCLjNWN1ozZmY1">
+        JOIN TELEGRAM
       </a>
-
     </div>
 
-    <div class="disclaimer">
-      This channel is for educational purposes only.<br>
-      We do not provide investment advice or guaranteed returns.
-    </div>
+    <p class="tagline">नियत अच्छी और मेहनत सच्ची हो, तो कामयाबी जरूर मिलती है।</p>
+
+    <footer>
+        
+        <!-- ✅ CLICKABLE AD BOX -->
+      <div class="ad-box">
+        This Channel Advertise By 
+        <a href="https://t.me/+UyYzth29HpY4MDVl" target="_blank">
+          DIGITAL ADS EXPERT
+        </a>
+      </div>
+      <br>
+      <a href="https://elitepips.online/terms/" target="_blank">Terms</a> |
+      <a href="https://elitepips.online/privacy/" target="_blank">Privacy</a> |
+      <a href="https://elitepips.online/disclaimer/" target="_blank">Disclaimer</a>
+      <br><br>
+      This site is not part of Facebook™️ or endorsed by Facebook™️.
+
+      
+    </footer>
 
   </div>
-</div>
-
-<script>
-// YES → show Telegram step
-document.getElementById("yesBtn").onclick = ()=>{
-  document.getElementById("questionStep").classList.add("hidden");
-  document.getElementById("telegramStep").classList.remove("hidden");
-};
-
-// NO → exit
-document.getElementById("noBtn").onclick = ()=>{
-  alert("This access is only for interested users.");
-  window.location.href="https://google.com";
-};
-
-// OPTIONAL Subscribe event
-document.getElementById("tgBtn").addEventListener("click", ()=>{
-  try{
-    fbq('track','Subscribe');
-  }catch(e){}
-});
-</script>
 
 </body>
 </html>
